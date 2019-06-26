@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "963089212641",
+    "firebase_url": "https://bootcamp2019-be731.firebaseio.com",
+    "project_id": "bootcamp2019-be731",
+    "storage_bucket": "bootcamp2019-be731.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963089212641:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963089212641-nrm12bobkjsr47q6smqm9bf6d5r41cor.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "6f4335be0b90e3b13b7335504ad2f6f87a95ff96"
+          }
+        },
+        {
+          "client_id": "963089212641-qo31tjlag44pake26m4mnrvh79m06ks0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy9nDWubN_XmY9VsrrMpT1eiQ3aqFY6_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963089212641-qo31tjlag44pake26m4mnrvh79m06ks0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
