@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -38,6 +40,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
 
         checkBox = findViewById(R.id.mycheck);
         editText = findViewById(R.id.editText4);
@@ -75,7 +78,14 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+//        this.finish();
+    }
+
+    @Override
     public void onBackPressed() {
+        super.onBackPressed();
 
     }
 
@@ -84,6 +94,13 @@ public class Main2Activity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main2, menu);
         return true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.finish();
+
     }
 
     @Override
@@ -97,6 +114,8 @@ public class Main2Activity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, MainActivity.class));
+            this.finish();
+
             return true;
         } else if (id == R.id.list_item) {
             startActivity(new Intent(Main2Activity.this, ListActivity.class));

@@ -45,9 +45,9 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:background="@color/Orange"
-        app:rippleColor="@color/Orange"
-        android:outlineSpotShadowColor="@color/Orange"
         android:outlineAmbientShadowColor="@color/Orange"
+        android:outlineSpotShadowColor="@color/Orange"
+        app:rippleColor="@color/Orange"
 
         app:srcCompat="@android:drawable/ic_input_add" />
 

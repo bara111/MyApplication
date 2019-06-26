@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private EditText mEmail, mPassword;
-
+    private ImageView mImage;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("message");
     private DatabaseReference newPostRef, postsRef;
@@ -42,9 +45,16 @@ public class MainActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         mSignIn = findViewById(R.id.Sign_in);
         mSignUp = findViewById(R.id.Sign_up);
+        mImage=findViewById(R.id.image);
         postsRef = myRef.child("posts");
         mAuth = FirebaseAuth.getInstance();
 
+        Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        mEmail.startAnimation(aniFade);
+        mPassword.startAnimation(aniFade);
+        mSignIn.startAnimation(aniFade);
+        mSignUp.startAnimation(aniFade);
+        mImage.startAnimation(aniFade);
 
 // We can also chain the two calls together
         mSignIn.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(null, "createUserWithEmail:success");
-                           mUser = mAuth.getCurrentUser();
+                            mUser = mAuth.getCurrentUser();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(null, "createUserWithEmail:failure", task.getException());
@@ -93,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
-    public void Sign_in(){
+
+    public void Sign_in() {
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
         if (email.isEmpty()) {
@@ -113,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(null, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                            startActivity(new Intent(MainActivity.this, Main2Activity.class));
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -129,24 +140,29 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
+
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.finish();
+
+    }
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser!=null){
+        if (currentUser != null) {
             startActivity(new Intent(this, Main2Activity.class));
         }
 
 
+
     }
-
-
-
-
 
 
 }

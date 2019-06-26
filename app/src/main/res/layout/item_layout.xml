@@ -5,21 +5,23 @@
     android:background="@color/Orange"
     android:orientation="horizontal">
 
-    <ImageView
+    <CheckBox
         android:id="@+id/status"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical"
         android:layout_margin="20dp"
+        android:buttonTint="@color/white"
+        android:clickable="true"
 
-        android:src="@drawable/ic_launcher_foreground" />
+        />
 
     <TextView
-        android:layout_gravity="center_vertical"
-
         android:id="@+id/task"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_margin="20dp"
         android:fontFamily="cursive"
         android:text="@string/sign_in"
